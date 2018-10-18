@@ -31,6 +31,17 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::put('{id}/update',  ['as'=>'habitos.update', 'uses'=>'HabitosController@update']);
 		Route::post('store',       ['as'=>'habitos.store', 'uses'=>'HabitosController@store']);
 	});
+
+	Route::group(['prefix'=>'historicos', 'where'=>['id'=>'[0-9]+']], function() {
+		Route::get('',             ['as'=>'historicos', 'uses'=>'HistoricosController@index']);
+		Route::get('create',       ['as'=>'historicos.create', 'uses'=>'HistoricosController@create']);
+		Route::get('{id}/destroy', ['as'=>'historicos.destroy', 'uses'=>'HistoricosController@destroy']);
+		Route::get('{id}/edit',    ['as'=>'historicos.edit', 'uses'=>'HistoricosController@edit']);
+		Route::put('{id}/update',  ['as'=>'historicos.update', 'uses'=>'HistoricosController@update']);
+		Route::post('store',       ['as'=>'historicos.store', 'uses'=>'HistoricosController@store']);
+	});
+
+	
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
 });
