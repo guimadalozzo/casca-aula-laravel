@@ -1,23 +1,22 @@
-@extends('layouts.app')
+@extends('adminlte::layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+@section('htmlheader_title')
+    {{ trans('adminlte_lang::message.home') }}
+@endsection
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
-                    You are logged in!
+@section('main-content')
+    <div class="container-fluid spark-screen">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Home</div>
+
+                    <div class="panel-body">
+                        Descrição da tela principal do sistema.
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

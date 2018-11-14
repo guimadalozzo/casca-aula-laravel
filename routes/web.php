@@ -39,6 +39,9 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('{id}/edit',    ['as'=>'historicos.edit', 'uses'=>'HistoricosController@edit']);
 		Route::put('{id}/update',  ['as'=>'historicos.update', 'uses'=>'HistoricosController@update']);
 		Route::post('store',       ['as'=>'historicos.store', 'uses'=>'HistoricosController@store']);
+
+		Route::get('createmaster',  ['as'=>'historicos.createmaster', 'uses'=>'HistoricosController@createmaster']);
+		Route::post('masterdetail', ['as'=>'historicos.masterdetail', 'uses'=>'HistoricosController@masterdetail']);
 	});
 
 	

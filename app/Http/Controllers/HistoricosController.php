@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Historico;
+use App\HistoricoHabitos;
 use App\Http\Requests\HistoricoRequest;
 
 class HistoricosController extends Controller
@@ -37,4 +38,25 @@ class HistoricosController extends Controller
     	Historico::find($id)->update($request->all());
         return redirect()->route('historicos');
     }
+
+    public function createmaster(){
+        return view('historicos.masterdetail');
+    }
+
+    public function masterdetail(Request $request){
+        $historico = Historico::create([
+                            'data' => $request->get('data'),
+                            'hora' => $request->get('hora')
+                        ]);
+
+        $itens = $request->itens;
+        foreach($itens as $key => $value) {
+            HistoricoHabitos::create([
+                            'historico_id' => $historico->id,
+                            'habito_id' => $itens[$key]
+                        ]);
+        }
+        return redirect()->route('historicos');
+    }
+
 }

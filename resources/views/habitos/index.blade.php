@@ -32,12 +32,20 @@
 				        <td>
 				        	<a href="{{ route('habitos.edit', ['id'=>$hab->id]) }}"
 				        	   class="btn-sm btn-success">Editar</a>
-				        	<a href="{{ route('habitos.destroy', ['id'=>$hab->id]) }}"
+				        	<a href="#" onClick="return ConfirmaExclusao({{$hab->id}})"
 				        	   class="btn-sm btn-danger">Excluir</a>
 				        </td>
 				    </tr>
 			    @endforeach
 			</tbody>
 		</table>
+		{{ $habitos->links() }}
+		<br>
+			
+		<a href="{{route('habitos.create')}}" class="btn btn-info">Novo</a>
 	</div>
+@endsection
+
+@section('table-delete')
+"habitos"
 @endsection

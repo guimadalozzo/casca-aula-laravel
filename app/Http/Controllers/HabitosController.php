@@ -10,7 +10,7 @@ use App\Http\Requests\HabitoRequest;
 class HabitosController extends Controller
 {
     public function index(){
-        $habitos = Habito::all();
+        $habitos = Habito::orderBy('nome')->paginate(10);
         return view('habitos.index', ['habitos'=>$habitos]);
     }
 
@@ -25,8 +25,16 @@ class HabitosController extends Controller
     }
 
     public function destroy($id) {
-    	Habito::find($id)->delete();
-        return redirect()->route('habitos');
+        try {
+    	   Habito::find($id)->delete();
+           $ret = array('status'=>'ok', 'msg'=>"null");
+        } catch(\Illuminate\Database\QueryException $e) {
+           $ret = array('status'=>'erro', 'msg'=>$e->getMessage());
+        }
+        catch(\PDOException $e) {
+           $ret = array('status'=>'erro', 'msg'=>$e->getMessage());
+        }
+        return $ret;
     }
 
     public function edit($id) {

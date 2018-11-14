@@ -10,8 +10,8 @@
             <li class="header">Acessos</li>
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>Início</span></a></li>
-            <li><a href="{{ url('') }}"><i class='fa fa-bug'></i> <span>Level 1</span></a></li>
-            <li><a href="{{ url('') }}"><i class='fa fa-chain-broken'></i> <span>Level 2</span></a></li>
+            <li><a href="{{ url('habitos') }}"><i class='fa fa-heartbeat'></i> <span>Hábitos</span></a></li>
+            <li><a href="{{ url('historicos') }}"><i class='fa fa-list-ul'></i> <span>Históricos</span></a></li>
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
